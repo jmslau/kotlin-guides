@@ -423,6 +423,8 @@ android {
     lintOptions {
         check 'Interoperability'
     }
-}```
+}
+```
+For the full set of configurations supported inside lintOptions, refer to the [Android Gradle DSL reference](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.LintOptions.html).
 
-`./gradlew lint` will now run the Kotlin Interoperability checks.
+Then, run `./gradlew lint` from the command-line.
