@@ -13,11 +13,6 @@ _<a href="changelog.html">Last update: {{ site.changes.last.date | date: "%Y-%m-
 
 # Java (for Kotlin consumption)
 
-## Nullability annotations
-
-Every non-primitive parameter, return, and field type in a public API should have a nullability annotation. Non-annotated types are interpreted as ["platform" types](https://kotlinlang.org/docs/reference/java-interop.html#null-safety-and-platform-types) which have ambiguous nullability.
-
-JSR 305 package annotations could be used to set up a reasonable default but are currently discouraged. They require an opt-in flag to be honored by the compiler and conflict with Java 9's module system.
 
 ## No hard keywords
 
@@ -29,6 +24,13 @@ For example, Mockito's `when` function requires backticks when used from Kotlin:
 val callable = Mockito.mock(Callable::class.java)
 Mockito.`when`(callable.call()).thenReturn(/* … */)
 ```
+
+
+## Nullability annotations
+
+Every non-primitive parameter, return, and field type in a public API should have a nullability annotation. Non-annotated types are interpreted as ["platform" types](https://kotlinlang.org/docs/reference/java-interop.html#null-safety-and-platform-types) which have ambiguous nullability.
+
+JSR 305 package annotations could be used to set up a reasonable default but are currently discouraged. They require an opt-in flag to be honored by the compiler and conflict with Java 9's module system.
 
 
 ## Lambda parameters last
@@ -395,8 +397,8 @@ public class JavaClass {
 # Lint Checks for Interoperability
 
 ## Requirements
-* **Android Studio version required:** 3.2 Canary 10 or later
-* **Lint version required:** 26.2.0-alpha10 or later
+* **Android Studio version:** 3.2 Canary 10 or later
+* **Android Gradle Plugin version:** 3.2.0-alpha10 or later
 
 ## Supported Checks
 There are now Android Lint checks that will help you detect and flag some of the interoperability issues described above. Only issues in Java (for Kotlin consumption) are detected currently. Specifically, the supported checks are:
